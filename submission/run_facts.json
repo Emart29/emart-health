@@ -1,0 +1,14 @@
+{
+  "_note": "Facts about the reported run that are not in benchmark_summary.json. Copied from the Kaggle run log of 12 October 2026 (notebook version 4).",
+  "adapter_repo": "Emar7/N-ATLaS-Health-QA-LoRA-Powered-by-Awarri",
+  "github_url": "https://github.com/Emart29/emart-health",
+  "trainable_params": "41,943,040 trainable parameters, which is 0.52% of the 8.07 billion parameters in the model",
+  "batch": "2 per GPU on 2 GPUs with 8 gradient accumulation steps, so an effective batch of 32. 101 optimizer steps, the first 10 as warmup",
+  "hardware_and_time": "Kaggle free tier, 2 x NVIDIA Tesla T4 (16 GB each). Training took 44 minutes. The whole run, including both benchmark passes, took about 51 minutes",
+  "mcq_rows": 4039,
+  "usable_mcq": 3722,
+  "dropped_text": "316 were dropped because they have more than one correct answer or an answer key that does not match an option, and 1 because its options were empty.",
+  "demo_question": "A 4-year-old child in a malaria-endemic area presents with fever, pallor and a palpable spleen.\nWhich investigation should be done first?\n\nA. Chest X-ray\nB. Blood film for malaria parasites\nC. Lumbar puncture\nD. Urine culture",
+  "demo_output": "B",
+  "versions": "Kaggle GPU notebook image of 12 October 2026 with Python 3.13 and Kaggle's preinstalled PyTorch and transformers (a transformers release that no longer accepts the warmup_ratio argument), plus bitsandbytes installed by the first notebook cell. Exact version numbers were not printed in the run log"
+}

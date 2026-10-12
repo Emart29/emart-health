@@ -1,0 +1,28 @@
+{
+  "benchmark": "AfriMed-QA v2 multiple-choice (single correct answer), held-out",
+  "split_method": "500 questions held out at random (seed 42) from all usable single-answer questions before training; the dataset's official splits were not used because they hold 124 usable train and 3598 usable test questions, so the remaining questions, most of them from the official test split, were used for training",
+  "n_questions": 500,
+  "chance_accuracy": 0.2122,
+  "base_accuracy": 0.504,
+  "base_ci95": [
+    0.4603,
+    0.5476
+  ],
+  "finetuned_accuracy": 0.606,
+  "finetuned_ci95": [
+    0.5625,
+    0.6479
+  ],
+  "difference_points": 10.2,
+  "base_right_finetuned_wrong": 30,
+  "finetuned_right_base_wrong": 81,
+  "mcnemar_exact_p": 0.0,
+  "train_examples": 3222,
+  "epochs": 1,
+  "lr": 0.0002,
+  "lora_r": 16,
+  "seed": 42,
+  "base_model": "NCAIR1/N-ATLaS",
+  "dataset": "intronhealth/afrimedqa_v2",
+  "scoring": "argmax of next-token logits over the option letters, 4-bit NF4 weights for both models"
+}

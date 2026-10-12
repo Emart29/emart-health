@@ -1,0 +1,9 @@
+CLAUDE.md
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+natlas_health_finetune_benchmark.ipynb
+natlas_health_out/adapter/
+natlas_health_out/checkpoints/
+*.zip
+submission/private/
