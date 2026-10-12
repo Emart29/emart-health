@@ -30,6 +30,7 @@ This is one training run with one seed. Nothing was tuned on the 500 benchmark q
 | --- | --- |
 | `natlas_pipeline.py` | The whole pipeline as one script: data prep, base scoring, QLoRA fine-tune, re-scoring, statistics, model card, publish. |
 | `natlas_health_kaggle.ipynb` | The same code as a notebook, generated from the script. The reported run used this on Kaggle. |
+| `natlas_health_demo.ipynb` | Live demo: loads N-ATLaS, then the published adapter on top, and answers the same questions with each. Its answers to the first five benchmark questions matched the published predictions 5 out of 5 for both models. |
 | `modal_natlas_health.py` | Optional launcher that runs the script on a Modal GPU. Not used for the reported run. |
 | `natlas_health_out/benchmark_summary.json` | Both accuracies, intervals, split method and settings, as written by the run. |
 | `natlas_health_out/benchmark_500_predictions.csv` | One row per benchmark question with both models' answers. |

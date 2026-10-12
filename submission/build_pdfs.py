@@ -147,7 +147,8 @@ ADAPTER = "{ADAPTER}"
 tok = AutoTokenizer.from_pretrained(BASE)
 bnb = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type="nf4",
                          bnb_4bit_use_double_quant=True, bnb_4bit_compute_dtype=torch.float16)
-base = AutoModelForCausalLM.from_pretrained(BASE, quantization_config=bnb, device_map={{"": 0}})
+base = AutoModelForCausalLM.from_pretrained(BASE, quantization_config=bnb, device_map={{"": 0}},
+                                            torch_dtype=torch.float16)
 model = PeftModel.from_pretrained(base, ADAPTER)   # the adapter sits on top of N-ATLaS
 model.eval()
 
@@ -312,6 +313,7 @@ FILE_ROWS = [
     ["File", "Purpose"],
     ["natlas_pipeline.py", "The whole pipeline as one script. This is the source of truth."],
     ["natlas_health_kaggle.ipynb", "The same code as a notebook, generated from the script. Used for the reported run."],
+    ["natlas_health_demo.ipynb", "Live demo: loads N-ATLaS, then the published adapter, and answers the same questions."],
     ["modal_natlas_health.py", "Optional launcher that runs the script on a Modal GPU."],
     ["natlas_health_out/benchmark_summary.json", "Both accuracies, intervals, p-value, split method, settings."],
     ["natlas_health_out/benchmark_500_predictions.csv", "One row per benchmark question with both models' answers."],
@@ -361,6 +363,10 @@ story = [
     Paragraph(f"Library versions used for the reported run: {esc(FACTS['versions'])}.", P),
     Paragraph("6. How to load and query the model", H2),
     Preformatted(LOAD_CODE, CODE),
+    Paragraph("This loading path was checked in a fresh Kaggle session (natlas_health_demo.ipynb): the published "
+              "adapter was downloaded from Hugging Face, loaded on top of N-ATLaS, and its answers to the first "
+              "five benchmark questions matched the published predictions file 5 out of 5, as did the base "
+              "model's.", P),
     Paragraph("For benchmark-style scoring, compare the next-token logits of the option letters instead of "
               "generating text. The function <i>predict</i> in natlas_pipeline.py does this.", P),
     Paragraph("7. Design decisions", H2),

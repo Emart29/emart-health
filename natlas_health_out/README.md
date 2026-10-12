@@ -50,7 +50,8 @@ ADAPTER = "Emar7/N-ATLaS-Health-QA-LoRA-Powered-by-Awarri"
 tok = AutoTokenizer.from_pretrained(BASE)
 bnb = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_quant_type="nf4",
                          bnb_4bit_use_double_quant=True, bnb_4bit_compute_dtype=torch.float16)
-base = AutoModelForCausalLM.from_pretrained(BASE, quantization_config=bnb, device_map={"": 0})
+base = AutoModelForCausalLM.from_pretrained(BASE, quantization_config=bnb, device_map={"": 0},
+                                            torch_dtype=torch.float16)
 model = PeftModel.from_pretrained(base, ADAPTER)
 model.eval()
 
